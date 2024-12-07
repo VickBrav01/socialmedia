@@ -1,0 +1,10 @@
+To develop a social media Api, Do the Following
+
+Steps to follow to setup our project
+
+1. Create a virtual environment
+2. Install Django
+3. Create the project using (django-admin startproject socialmedia)
+4. Then change directory to socialmedia
+5. Install the required packages, for our case
+   (django-restframework, django-restframework-simplejwt, mysqlclient, django-filters)
