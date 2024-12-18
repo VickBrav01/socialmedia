@@ -42,9 +42,9 @@ class PostDetailView(RetrieveUpdateDestroyAPIView):
     serializer_class = PostSerializer
     permission_classes = [IsAuthenticated]
     
-    def get_queryset(self):
-        user = self.request.user
-        post = Post.objects.filter(author=user)
-        return post
+    # def get_queryset(self):
+    #     user = self.request.user
+    #     post = Post.objects.filter(author=user)
+    #     return post
     
     
