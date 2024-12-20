@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     "Post",
     "Comment",
     "Follow",
+    "Like",
 ]
 
 REST_FRAMEWORK = {
@@ -44,7 +45,7 @@ REST_FRAMEWORK = {
 }
 
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(hours=2),
+    "ACCESS_TOKEN_LIFETIME": timedelta(days=2),
 }
 
 MIDDLEWARE = [
