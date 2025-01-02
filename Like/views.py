@@ -14,7 +14,8 @@ from rest_framework.permissions import IsAuthenticated
 class CreateLike(CreateAPIView):
     serializer_class = LikeSerializer
     permission_classes = [IsAuthenticated]
-    
+
+
     def create(self, request, *args, **kwargs):
         pk = self.kwargs.get("pk")      
         user = self.request.user  
@@ -24,6 +25,7 @@ class CreateLike(CreateAPIView):
             return Response(
                 {"message": "You already like the post"}, status=status.HTTP_208_ALREADY_REPORTED
             )
+            
         
         like = Like.objects.create(user=user, post=post)
         serializer = self.serializer_class(like)

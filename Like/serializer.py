@@ -5,4 +5,5 @@ class LikeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Like
         fields = ["user", "post", "created_at"]
+        
 
