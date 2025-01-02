@@ -7,4 +7,4 @@ Steps to follow to setup our project
 3. Create the project using (django-admin startproject socialmedia)
 4. Then change directory to socialmedia
 5. Install the required packages, for our case
-   (djangorestframework, djangorestframework-simplejwt, mysqlclient, django-filters)
+
