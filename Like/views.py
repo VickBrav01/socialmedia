@@ -8,6 +8,9 @@ from rest_framework import status
 
 from rest_framework.permissions import IsAuthenticated
 
+
+# This class is responsible for creating a like for a post, checking if the user has already liked the
+# post, and returning appropriate responses.
 class CreateLike(CreateAPIView):
     serializer_class = LikeSerializer
     permission_classes = [IsAuthenticated]
@@ -34,6 +37,7 @@ class CreateLike(CreateAPIView):
             
         
         
+# This class defines a view for deleting a like on a post by a user.
     
 class DeleteLike(DestroyAPIView):
     

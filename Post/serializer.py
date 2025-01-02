@@ -4,6 +4,9 @@ from Comment.serializer import CommentSerializer
 from Like.serializer import LikeSerializer
 
 
+
+# The `PostSerializer` class serializes Post objects with fields for author, content, image, comments,
+# likes, created_at, and updated_at.
 class PostSerializer(serializers.ModelSerializer):
     comments = CommentSerializer(many=True, read_only=True)
     likes = LikeSerializer(many=True, read_only=True)

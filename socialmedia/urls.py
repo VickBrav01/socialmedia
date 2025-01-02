@@ -10,4 +10,5 @@ urlpatterns = [
     path("api/", include("Comment.urls")),
     path("api/", include("Follow.urls")),
     path("api/", include("Like.urls")),
+    path("api/", include("Feed.urls")),
 ]

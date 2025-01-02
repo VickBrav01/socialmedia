@@ -13,6 +13,9 @@ User = get_user_model()
 
 
 
+
+# The `Register` class is an API view in Python that handles user registration by validating user
+# input, creating a new user, and generating access tokens.
 class Register(APIView):
     serializer_class = UserSerializer
     
@@ -37,9 +40,14 @@ class Register(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+# The class `Login` is a subclass of `TokenObtainPairView` in Python.
 class Login(TokenObtainPairView):
     pass
 
+
+
+# The `Profile` class in this Python code defines API views for retrieving, updating, and deleting
+# user profiles with authentication checks.
 class Profile(APIView):
     queryset= User.objects.all()
     serializer_class = UserSerializer

@@ -10,6 +10,8 @@ from .models import Post
 
     
 
+# The `PostCreateView` class is a Django REST framework view for creating posts with the authenticated
+# user as the author.
 class PostCreateView(CreateAPIView):
     serializer_class = PostSerializer
     permission_classes = [IsAuthenticated]
@@ -20,8 +22,11 @@ class PostCreateView(CreateAPIView):
             serializer.save(author=user)
             
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
         
     
+# The `PostListView` class is a Django REST framework view that lists posts authored by the
+# authenticated user.
 class PostListView(ListAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
@@ -31,14 +36,10 @@ class PostListView(ListAPIView):
         user = self.request.user
         post = Post.objects.filter(author=user)
         return post
-        
+
     
-    
-# class PostDetailView(RetrieveUpdateDestroyAPIView):
-#     queryset = Post.objects.all()
-#     serializer_class = PostSerializer
-#     permission_classes = [IsAuthenticated]
-    
+# This class defines views for retrieving, updating, and deleting a Post object with authentication
+# checks based on the requesting user's ID.
 class PostDetailView(views.APIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer

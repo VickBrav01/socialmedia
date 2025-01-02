@@ -8,6 +8,9 @@ from Post.models import Post
 from .models import Comment
 
 
+
+# This class is used to create a comment associated with a specific post in a Django REST framework API.
+
 class CreateComment(CreateAPIView):
     serializer_class = CommentSerializer
     permission_classes=[IsAuthenticated]
@@ -19,6 +22,8 @@ class CreateComment(CreateAPIView):
         comment = serializer.save(author=user, post=post)
         return comment
     
+    
+# This class is a ListAPIView for Comment objects with authentication permission.
 class ListComment(ListAPIView):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
@@ -29,17 +34,16 @@ class ListComment(ListAPIView):
         post = self.kwargs.get("pk")
         comment = Comment.objects.filter(post = post)
         return comment
+    
+    
         
+# The `CommentDetail` class is a view for retrieving, updating, and deleting individual comment instances with authentication required.
 class CommentDetail(RetrieveUpdateDestroyAPIView):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
     permission_classes=[IsAuthenticated]
     
     
-    # def get_queryset(self):
-    #     post = self.kwargs.get("pk")
-    #     comment = Comment.objects.filter(post = post)
-    #     return comment
-    
+
 
 
