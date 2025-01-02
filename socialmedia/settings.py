@@ -31,19 +31,21 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     "User",
+    "Post",
+    "Comment",
+    "Follow",
+    "Like",
 ]
 
 REST_FRAMEWORK = {
-    "DEFAUTLT_AUTHENTICATION_CLASSES":(
+    "DEFAULT_AUTHENTICATION_CLASSES": [
         "rest_framework_simplejwt.authentication.JWTAuthentication",
-    ),
-    # "DEFAULT_PERMISSION_CLASSES":[
-    #     "rest_framework.permissions.IsAuthenticated"
-    # ],
+    ],
+    
 }
 
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(hours=2),
+    "ACCESS_TOKEN_LIFETIME": timedelta(days=2),
 }
 
 MIDDLEWARE = [
@@ -80,17 +82,23 @@ WSGI_APPLICATION = 'socialmedia.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'socialmedia',  
+#         'USER': 'root',      
+#         'PASSWORD': '1233',  
+#         'HOST': 'localhost',   
+#         'PORT': '3306',                
+#         }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'socialmedia',  
-        'USER': 'root',      
-        'PASSWORD': '1233',  
-        'HOST': 'localhost',   
-        'PORT': '3306',            
-        }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
