@@ -1,16 +1,16 @@
-<!-- Social Media API -->
+Social Media API
 
 This API enables users to perform various social media functions, including creating posts, following/unfollowing users, and viewing a feed of posts. The API uses JSON Web Tokens (JWT) for authentication.
 
-<!-- Features -->
+Features
 
-<!-- User Management: -->
+User Management:
 
    1.User registration and authentication using JWT.
 
    2.View user details, including followers and following.
 
-<!-- Posts: -->
+Posts:
 
    CRUD operations for posts.
 
@@ -22,21 +22,21 @@ This API enables users to perform various social media functions, including crea
 
    View followers and following.
 
-<!-- Feed: -->
+Feed:
 
    Display posts from followed users.
 
-<!-- Authentication -->
+Authentication
 
    Authentication is handled using JWT. Users must include their token in the Authorization header as a Bearer token for all protected endpoints.
 
-<!-- Example: -->
+Example:
 
 
 
 Endpoints
 
-<!-- User Endpoints -->
+User Endpoints
 
    Register: /api/users/register/ (POST)
 
@@ -44,7 +44,7 @@ Endpoints
 
    Profile: /api/users/<id>/ (GET)
 
-<!-- Post Endpoints -->
+Post Endpoints
 
    Create Post: /api/posts/ (POST)
 
@@ -58,39 +58,39 @@ Endpoints
 
    Unlike Post: /api/posts/<id>/unlike/ (DELETE)
 
-<!-- Follow Endpoints -->
+Follow Endpoints
 
    Follow User: /api/follow/<id>/ (POST)
 
    Unfollow User: /api/unfollow/<id>/ (DELETE)
 
 
-<!-- Feed Endpoint -->
+Feed Endpoint
 
    Get Feed: /api/feed/ (GET)
 
 
 
-<!-- Install dependencies: -->
+Install dependencies:
 
 pip install -r requirements.txt
 
 
-<!-- Apply migrations: -->
+Apply migrations:
 
-<!-- python manage.py migrate -->
+python manage.py migrate
 
-<!-- Run the server: -->
+Run the server:
 
    python manage.py runserver
 
 
-<!-- Example Request -->
+Example Request
 
 Register User
 
 POST /api/users/register/
-<!-- JSON Data -->
+JSON Data
    {
    "username": "Vick",
    "email": "vick@gmail.com",
@@ -105,7 +105,7 @@ Response
   "email": "vick@gmail.com"
 }
 
-<!-- Note -->
+Note
 
 Ensure JWT token is included in the header for authenticated requests.
 
