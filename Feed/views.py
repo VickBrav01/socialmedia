@@ -6,6 +6,8 @@ from Post.models import Post
 from django.db.models import Q
 from django.contrib.auth import get_user_model
 from Follow.models import Connection
+from rest_framework import filters
+from django_filters.rest_framework import DjangoFilterBackend
 
 
 User = get_user_model()
@@ -14,7 +16,11 @@ User = get_user_model()
 class Feeds(ListAPIView):
     serializer_class = FeedSerializer
     permission_classes = [IsAuthenticated]
+    filter_backends = [filters.OrderingFilter, DjangoFilterBackend]
+    ordering_fields = ["-created_at", "likes"]
+    filterset_fields = ["author"]
     queryset = Post.objects.all()
+    page_size = 10
     
     def get_queryset(self):
         user = self.request.user 
