@@ -1,4 +1,4 @@
-Social Media API
+## Social Media API
 
 This API enables users to perform various social media functions, including creating posts, following/unfollowing users, and viewing a feed of posts. The API uses JSON Web Tokens (JWT) for authentication.
 
